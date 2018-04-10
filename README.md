@@ -5,5 +5,5 @@
 ## 目录
 * [缓冲运动函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Buffer-movement/Buffer-movement.js)<br />
 * [myReady函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/myReady/myReady.js)<br />
-* [js实现透明度变化](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Buffer-movement/opacity-chang.js)<br />
-* [匀速运动函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Buffer-movement/uniform-motion.js)<br />
+* [js实现透明度变化](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/opacity-chang/opacity-chang.js)<br />
+* [匀速运动函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/uniform-motion/uniform-motion.js)<br />
