@@ -7,3 +7,4 @@
 * [myReady函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/myReady/myReady.js)<br />
 * [js实现透明度变化](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/opacity-chang/opacity-chang.js)<br />
 * [匀速运动函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/uniform-motion/uniform-motion.js)<br />
+* [返回节点名称或属性值](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/nodeName/nodeName.html)<br />
