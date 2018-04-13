@@ -3,6 +3,7 @@
 
 * 此文档一直在不断更新中，如不足之处或有更好的建议欢迎 fork 之后提交 pr。
 ## 目录
+* [json封装scroll方法](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/json-scroll/json-scroll.html)<br />
 * [缓冲运动函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Buffer-movement/Buffer-movement.js)<br />
 * [myReady函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/myReady/myReady.js)<br />
 * [js实现透明度变化](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/opacity-chang/opacity-chang.js)<br />
