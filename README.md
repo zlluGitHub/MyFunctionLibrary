@@ -3,6 +3,9 @@
 
 * 此文档一直在不断更新中，如不足之处或有更好的建议欢迎 fork 之后提交 pr。
 ## 目录
+* [ js实现简单日历效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/calendar/%E6%97%A5%E5%8E%86.html)<br />
+* [实现圆形表盘时钟效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/clock/%E6%97%B6%E9%92%9F%E7%89%B9%E6%95%88.html)<br />
+* [倒计时效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/count-down/%E5%80%92%E8%AE%A1%E6%97%B6.html)<br />
 * [json封装scroll方法](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/json-scroll/json-scroll.html)<br />
 * [缓冲运动函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Buffer-movement/Buffer-movement.js)<br />
 * [myReady函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/myReady/myReady.js)<br />
