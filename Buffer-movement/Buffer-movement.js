@@ -23,8 +23,11 @@ function startMove(iTarget){
     clearInterval(timer);
     var oDiv=document.getElementById('id1');
     timer=setInterval(function(){
+        //步长亦称速度
         var speed=(iTarget-oDiv.offsetLeft)/10;
+        //向上或向下取整
         speed=speed>0?Math.ceil(speed):Math.floor(speed);
+        //判断是否到达目标值
         if(oDiv.offsetLeft==iTarget){
             clearInterval(timer);
         }
@@ -33,3 +36,12 @@ function startMove(iTarget){
         }
     },30)
 }
+
+/*
+* @时间:2018-04-15 16:33:55
+* @函数功能: 获取DOM中的目标元素
+*/
+function $(id){
+     return typeof id === "string" ? documentById(id) : null;
+}
+
