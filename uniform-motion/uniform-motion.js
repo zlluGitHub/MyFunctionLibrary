@@ -13,7 +13,7 @@ function linearAnimation（btnId,boxId,step,target）{
       var btn=document.getElementById(btnId);
       var box=document.getElementById(boxId);
      //定义变量
-     var time=null, begin=0, step=10, target=100;
+     var time=null, begin=0;
      //监听按钮点击
      btn.onclick=function(){
         //清除定时器
