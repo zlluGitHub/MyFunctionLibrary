@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>日期特效</title>
+    <style type="text/css" >
+       #box {
+          width:250px;
+          height:300px;
+          background-color:orangered;
+          margin:100px auto;
+          padding:20px;
+       }
+       #box_top{
+        font-size:23px;
+        color:#fff;
+        margin-bottom:20px;
+       }
+       #box_bottom{
+        width:90%;
+        background-color:orange;
+       /* // height:70px; */
+        margin:0px auto;
+        font-size:100px;
+        color:#fff;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+       }
+    </style>
+    <script>
+       window.onload=function(){
+         var time= document.getElementById("time");
+            //获取将来时间
+            var nextDate=new Date('2018/04/16 08:17:35');
+            //设置定时器
+            setInterval(function(){
+            //获取当前时间
+            var currentDate=new Date();
+            //获取当前时间戳
+            var currentTime=currentDate.getTime();
+            var nextTime=nextDate.getTime();
+            //获取剩下的时间戳
+            var allTime=nextTime-currentTime;
+            //把毫秒转化成秒
+            var allsecond=parseInt(allTime/1000);
+            //转化
+            var d=size(parseInt(allsecond/3600/24));
+            var h=size(parseInt(allsecond/3600%24));
+            var m=size(parseInt(allsecond/60%60));
+            var s=size(parseInt(allsecond%60));
+            //注入
+            time.innerText="距离考试还有"+d+"天"+h+"小时"+m+"分钟"+s+"秒";
+        },1000)
+        function size(num){
+          return num>=10?num:'0'+num;
+        }
+       }
+    </script>
+</head>
+
+<body>
+    <div id="time">
+
+    </div>
+</body>
+
+</html>
