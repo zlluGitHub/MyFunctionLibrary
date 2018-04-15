@@ -23,7 +23,7 @@ function startMove(iTarget){
     clearInterval(timer);
     var oDiv=document.getElementById('id1');
     timer=setInterval(function(){
-        //步长亦称速度
+        //步长亦称速度   适用公式：【 起始值 +=（结束值-起始值）* 缓冲系数 】 缓冲系数值一般可以设置为：0~1
         var speed=(iTarget-oDiv.offsetLeft)/10;
         //向上或向下取整
         speed=speed>0?Math.ceil(speed):Math.floor(speed);
