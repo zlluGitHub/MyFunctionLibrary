@@ -3,6 +3,7 @@
 
 * 此文档一直在不断更新中，如不足之处或有更好的建议欢迎 fork 之后提交 pr。
 ## 目录
+* [Ajax异步数据传输](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/ajax%20POST/test1.html)<br />
 * [鼠标拖拽效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/MouseDrag/MouseDrag.js)<br />
 * [随机抽奖效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Random-draw/%E9%9A%8F%E6%9C%BA%E6%8A%BD%E5%A5%96.html)<br />
 * [ js实现简单日历效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/calendar/%E6%97%A5%E5%8E%86.html)<br />
