@@ -3,6 +3,7 @@
 
 * 此文档一直在不断更新中，如不足之处或有更好的建议欢迎 fork 之后提交 pr。
 ## 目录
+* [放大镜效果小案例](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/magnifying-glass)<br />
 * [两侧跟随的广告](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/Following%20ads)<br />
 * [Ajax异步数据传输](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/ajax%20POST/test1.html)<br />
 * [鼠标拖拽效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/MouseDrag/MouseDrag.js)<br />
