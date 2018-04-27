@@ -64,10 +64,8 @@
             drop.onmousedown = function (event) {
                 //获取鼠标在盒子中的坐标，将来移动的时候减去保证鼠标在盒子的指定位置
                 event = event || window.event;
-                console.log(event.pageX);
-                    console.log(event.clientX);
-                var pagex = event.pageX || scroll().left + event.clientX ||  event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;
-                var pagey = event.pageY || scroll().top + event.clientY || event.clientY + document.documentElement.scrollTop + document.body.scrollTop;
+                var pagex = event.pageX || event.clientX + document.documentElement.scrollLeft || event.clientX + document.body.scrollLeft;
+                var pagey = event.pageY || event.clientY + document.documentElement.scrollTop || event.clientY + document.body.scrollTop;
                 var x = pagex - box.offsetLeft;
                 var y = pagey - box.offsetTop;
 
@@ -75,8 +73,8 @@
                 document.onmousemove = function (event) {
                     //2.把鼠标的坐标赋值给对话框。
                     event = event || window.event;
-                    var xx = event.pageX || scroll().left + event.clientX || event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft;
-                    var yy = event.pageY || scroll().top + event.clientY || event.clientY + document.documentElement.scrollTop + document.body.scrollTop;
+                    var xx = event.pageX || event.clientX + document.documentElement.scrollLeft || event.clientX + document.body.scrollLeft;
+                    var yy = event.pageY || event.clientY + document.documentElement.scrollTop || event.clientY + document.body.scrollTop;
                     //二次操作鼠标位置  减去鼠标在盒子中的坐标
                     xx = xx - x;
                     yy = yy - y;
@@ -117,8 +115,6 @@
         <div class="bd"></div>
     </div>
 </div>
-
-
 </body>
 </html>
 
