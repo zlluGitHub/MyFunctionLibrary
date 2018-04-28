@@ -3,6 +3,7 @@
 
 * 此文档一直在不断更新中，如不足之处或有更好的建议欢迎 fork 之后提交 pr。
 ## 目录
+* [注册事件的兼容性函数封装处理](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/event-handling.html)<br />
 * [移动端页面适配代码](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Mobile-code/Mobile.js)<br />
 * [jQuery滑块动画菜单](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/jQuery-SlideNav/js/lavalamp.js)<br />
 * [手风琴效果图](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Accordion-effect/demo.html)<br />
