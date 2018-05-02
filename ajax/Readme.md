@@ -1,21 +1,22 @@
-½â¾öajax´¦Àí·şÎñÆ÷¶Ë·µ»Ø½á¹ûresponseTextÖĞÊÇJSONµÄÊı¾İ¡£
+## è§£å†³ajaxå¤„ç†æœåŠ¡å™¨ç«¯è¿”å›ç»“æœresponseTextä¸­æ˜¯JSONçš„æ•°æ®ã€‚
 
-µÚÒ»£¬json¸ñÊ½µÄÎÄ¼şÄÚÈİÈçÏÂ£º
+* ### ç¬¬ä¸€ï¼Œjsonæ ¼å¼çš„æ–‡ä»¶å†…å®¹å¦‚ä¸‹ï¼š
 
-[plain] view plain copy
-{  
+~~~
+  {  
     "city":"ShangHai",  
     "telephone":"123456789"  
-}  
-
-µÚ¶ş£¬·şÎñÆ÷¶Ë·µ»ØµÄjsonÊı¾İ¾ÍÊÇÉÏÊöµÄÄÚÈİÔÚresponseTextÖĞ£¬ÏÖÔÚÒªÈ¡³öÀ´£¬·½·¨ÓĞÁ½ÖÖ£º
-·½·¨1£º
-
-[html] view plain copy
-var json=JSON.parse(request.responseText);  
-alert(json.city);  
-·½·¨2£º
-[html] view plain copy
-var result = request.responseText;  
-var jsonObject=eval("("+result+")");  
-alert(jsonObject.telephone);  
+  }  
+~~~
+* ### ç¬¬äºŒï¼ŒæœåŠ¡å™¨ç«¯è¿”å›çš„jsonæ•°æ®å°±æ˜¯ä¸Šè¿°çš„å†…å®¹åœ¨responseTextä¸­ï¼Œç°åœ¨è¦å–å‡ºæ¥ï¼Œæ–¹æ³•æœ‰ä¸¤ç§ï¼š
+æ–¹æ³•1ï¼š
+~~~
+  var json=JSON.parse(request.responseText);  
+  alert(json.city);  
+~~~
+æ–¹æ³•2
+~~~
+  var result = request.responseText;  
+  var jsonObject=eval("("+result+")");  
+  alert(jsonObject.telephone);  
+~~~

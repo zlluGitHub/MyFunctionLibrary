@@ -3,6 +3,7 @@
 
 * 此文档一直在不断更新中，如不足之处或有更好的建议欢迎 fork 之后提交 pr。
 ## 目录
+* [ajax异步传输获取方式](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/ajax)<br />
 * [左右焦点图轮播案例](https://github.com/zlluGitHub/StudyRecord/blob/master/demo.html)<br />
 * [Tab栏切换案例](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Tap-Control/tab1.js)<br />
 * [楼层跳跃案例代码](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/function/floor-leap.html)<br />
