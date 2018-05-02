@@ -2,12 +2,12 @@
 
 * ### 第一，json格式的文件内容如下：
 
-[plain] view plain copy
-{  
+~~~
+  {  
     "city":"ShangHai",  
     "telephone":"123456789"  
-}  
-
+  }  
+~~~
 * ### 第二，服务器端返回的json数据就是上述的内容在responseText中，现在要取出来，方法有两种：
 
   方法1：
