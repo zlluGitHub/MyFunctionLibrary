@@ -1,8 +1,7 @@
-// ajax get 五部曲
+// ajax get 
 function ajax_get(url,data) {
 	// 异步对象
 	var ajax = new XMLHttpRequest();
-
 	// url 方法
 	// 如果是get发送数据 发送的格式为 xxx.php?name=jack&age=18
 	// 所以 这里 需要拼接 url
