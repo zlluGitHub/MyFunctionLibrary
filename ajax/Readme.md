@@ -9,13 +9,12 @@
   }  
 ~~~
 * ### 第二，服务器端返回的json数据就是上述的内容在responseText中，现在要取出来，方法有两种：
-
-  方法1：
+方法1：
 ~~~
   var json=JSON.parse(request.responseText);  
   alert(json.city);  
 ~~~
-  方法2：
+方法2
 ~~~
   var result = request.responseText;  
   var jsonObject=eval("("+result+")");  
