@@ -37,7 +37,8 @@
             var week=date.getDay();
             var weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
             //赋值
-            $('box_top').innerText=y+'年'+m+'月'+d+'日 '+weeks[week] ;
+            $('box_top').getElementsByTagName("span")[0].innerText=y+'年'+m+'月'+d+'日';
+             $('box_top').getElementsByTagName("span")[1].innerText=weeks[week] ;
             $('box_bottom').innerText=d;
 
          };
@@ -48,7 +49,7 @@
 </head>
 <body>
     <div id="box">
-        <div id="box_top"></div>
+        <div id="box_top"><span>zdxfgvsdf</span><span>zdxfgvsdf</span></div>
         <div id="box_bottom"></div>
     </div>
 </body>
