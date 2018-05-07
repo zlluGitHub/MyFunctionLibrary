@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 5000px;
+            width: 5000px;
+        }
+    </style>
+    <script src="jsFLibrary.js"></script>
+    <script>
+
+        // 把工厂通过两个变量暴露出去
+    window.onload=function(){
+
+            console.log(jsFL.id("div").className);
+            console.log(jsFL.id("div1").className);
+            console.log(jsFL.id("div").className="12ws");
+            console.log(jsFL.id("div1").className);
+            console.log(jsFL.id("div").className);
+            console.log(jsFL.index=12);
+            console.log(jsFL.url);
+            console.log(jsFL.id("div").index=1);
+            console.log(jsFL.id("div1").index=2);
+            console.log("-------------");
+            console.log(jsFL.index);
+            console.log(jsFL.id("div").index);
+            console.log($.scroll().left);
+            console.log($.scroll().left);
+        }
+
+    </script>
+</head>
+<body>
+<div id="div" class="q dxfy">
+<div id="div1" class="q1">
+</div>
+</div>
+</body>
+</html>
