@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>测试DOM</title>
     <style>
+        div{
+            height:200px;
+            width:200px;
+            background-color:#666;
+        }
         body {
             height: 5000px;
             width: 5000px;
@@ -28,31 +33,23 @@
             console.log(jsFL.id("div").index);
             console.log($.scroll().left);
             console.log($.scroll().left);
+            //alert($.IEVersion());
+            jsFL.addEvent(jsFL.id("div"),"mousedown",function(){
+                alert("addEvent");
+            });
+            jsFL.removeEvent(jsFL.id("div"),"click",function(){
+                alert("y");
+            });
     })
 
-
     // window.onload=function(){
-
-    //         console.log(jsFL.id("div").className);
-    //         console.log(jsFL.id("div1").className);
-    //         console.log(jsFL.id("div").className="12ws");
-    //         console.log(jsFL.id("div1").className);
-    //         console.log(jsFL.id("div").className);
-    //         console.log(jsFL.index=12);
-    //         console.log(jsFL.url);
-    //         console.log(jsFL.id("div").index=1);
-    //         console.log(jsFL.id("div1").index=2);
-    //         console.log("-------------");
-    //         console.log(jsFL.index);
-    //         console.log(jsFL.id("div").index);
-    //         console.log($.scroll().left);
     //         console.log($.scroll().left);
     //     }
 
     </script>
 </head>
 <body>
-<div id="div" class="q dxfy">
+<div id="div" class="q">
 <div id="div1" class="q1">
 </div>
 </div>

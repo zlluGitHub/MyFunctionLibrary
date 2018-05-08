@@ -2,6 +2,7 @@ function jsFL() {
     // 创建构造函数
     function jsFunctionLibrary() {
         this.name = "jsFunctionLibrary";
+        this.explain = "";
     };
     // 给原型提供方法
     jsFunctionLibrary.prototype = {
@@ -38,10 +39,10 @@ function jsFL() {
             }
         },
         //动画函数封装
-        animate: function(ele, target, time) {
+        animate: function(ele, target, time, speed) {
             clearInterval(ele.timer);
             ele.timer = setInterval(function() {
-                var step = (target - ele.offsetTop) / 10;
+                var step = (target - ele.offsetTop) / speed;
                 step = step > 0 ? Math.ceil(step) : Math.floor(step);
                 ele.style.top = ele.offsetTop + step + "px";
                 console.log(1);
@@ -57,7 +58,7 @@ function jsFL() {
              if (ele.addEventListener) {
                  ele.addEventListener(type, fn);
              } else {
-                 ele.attachEvent('on' + type, fn);
+                 ele.attachEvent('on'+type, fn);
              }
          },
          // 兼容绑定事件移除
@@ -68,7 +69,7 @@ function jsFL() {
                  ele.detachEvent('on' + type, fn);
              }
          },
-         //scrollTop兼容封装
+         //scrollTop和scrollLeft兼容封装
          scroll: function() {
              // 开始封装自己的scrollTop
              if (window.pageYOffset != null) {
@@ -110,18 +111,6 @@ function jsFL() {
          //判断DOM树是否构建完成
          ready: function(fn) {
 
-             // 先统一判断DOMContentloaded有没有触发，
-             // 通过document.readyState === 'complete'判断
-             // 如果为true，fn可以直接调用。
-
-             // 如果为false，那么判断支不支持addEventListener，
-             // 如果支持，绑定DOMContentLoaded事件
-
-             // 如果不支持，使用attchEvent绑定onreadystatechang事件,
-             // 注意，需要在里面判断document.readyState === 'complete'才执行fn。
-             // 防止fn多次执行。
-
-             // DOM已经构造完毕，fn可以直接执行
              if (document.readyState === 'complete') {
                  fn();
              }
