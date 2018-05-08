@@ -6,7 +6,7 @@
 
         // 给原型提供方法
         jsFunctionLibrary.prototype = {
-
+            //动画函数封装
             animate: function(ele, target, time) {
                 clearInterval(ele.timer);
                 ele.timer = setInterval(function() {
@@ -28,7 +28,23 @@
                 }else {
                     ele.attachEvent( 'on' + type, fn );
                 }
-            }
+            },
+            // 兼容绑定事件移除
+            removeEvent: function( ele, type, fn ) {
+
+                // ele必须是DOM，type必须是字符串，fn必须是函数，
+                // 有一个不是，那就直接return
+                // if( !ele.nodeType || !jQuery.isString( type ) || !jQuery.isFunction( fn ) ) {
+                //     return;
+                // }
+
+                // 兼容移除事件
+                if( ele.removeEventListener ) {
+                    ele.removeEventListener( type, fn );
+                }else {
+                    ele.detachEvent( 'on' + type, fn );
+                }
+            },
             //scrollTop兼容封装
             scroll: function() {
                 // 开始封装自己的scrollTop
@@ -52,12 +68,64 @@
                     top: document.body.scrollTop
                 };
             },
-
+            // 获取操作对象
             id: function(id){
                 return typeof id === "string" ? document.getElementById(id) : null;
+            },
+
+            // 去掉首尾空白字符
+            trim: function( str ) {
+
+                // null、undefined、NaN、0、false、''
+                if ( !str ) {
+                    return str;
+                }
+
+                // 优先使用原生的
+                if ( str.trim ) {
+                    return str.trim();
+                }
+
+                return str.replace( /^\s+|\s+$/g, '');
+
+            },
+            //
+            ready: function( fn ) {
+
+            // 先统一判断DOMContentloaded有没有触发，
+            // 通过document.readyState === 'complete'判断
+            // 如果为true，fn可以直接调用。
+
+            // 如果为false，那么判断支不支持addEventListener，
+            // 如果支持，绑定DOMContentLoaded事件
+
+            // 如果不支持，使用attchEvent绑定onreadystatechang事件,
+            // 注意，需要在里面判断document.readyState === 'complete'才执行fn。
+            // 防止fn多次执行。
+
+            // DOM已经构造完毕，fn可以直接执行
+            if ( document.readyState === 'complete' ) {
+                fn();
+            }
+
+            // 如果DOM没有构造完毕，那么判断addEventListener是否兼容
+            else if( document.addEventListener ) {
+                document.addEventListener( 'DOMContentLoaded', fn );
+            }
+
+            // 如果不兼容addEventListener，那么采取attachEvent的方式，
+            // 同时事件变为了onreadystatechange，为了防止这个事件多次触发造成的fn多次执行，
+            // 所以需要一个包装函数来进行过滤。
+            else {
+                document.attachEvent( 'onreadystatechange', function() {
+                    if( document.readyState === 'complete' ) {
+                        fn();
+                    }
+                } );
+            }
             }
 
         };
         return new jsFunctionLibrary();
     };
-    var jsFL = $= jsFL();
+    var jsFL = $ = jsFL();

@@ -12,9 +12,8 @@
     <script src="jsFLibrary.js"></script>
     <script>
 
-        // 把工厂通过两个变量暴露出去
-    window.onload=function(){
 
+    $.ready(function(){
             console.log(jsFL.id("div").className);
             console.log(jsFL.id("div1").className);
             console.log(jsFL.id("div").className="12ws");
@@ -29,7 +28,26 @@
             console.log(jsFL.id("div").index);
             console.log($.scroll().left);
             console.log($.scroll().left);
-        }
+    })
+
+
+    // window.onload=function(){
+
+    //         console.log(jsFL.id("div").className);
+    //         console.log(jsFL.id("div1").className);
+    //         console.log(jsFL.id("div").className="12ws");
+    //         console.log(jsFL.id("div1").className);
+    //         console.log(jsFL.id("div").className);
+    //         console.log(jsFL.index=12);
+    //         console.log(jsFL.url);
+    //         console.log(jsFL.id("div").index=1);
+    //         console.log(jsFL.id("div1").index=2);
+    //         console.log("-------------");
+    //         console.log(jsFL.index);
+    //         console.log(jsFL.id("div").index);
+    //         console.log($.scroll().left);
+    //         console.log($.scroll().left);
+    //     }
 
     </script>
 </head>
