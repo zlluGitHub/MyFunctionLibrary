@@ -1,11 +1,11 @@
 function jsFL() {
     // 创建构造函数
-    function jsFunctionLibrary() {
-        this.name = "jsFunctionLibrary";
+    function JsFunctionLibrary() {
+        this.name = "JsFunctionLibrary";
         this.explain = "";
     };
     // 给原型提供方法
-    jsFunctionLibrary.prototype = {
+    JsFunctionLibrary.prototype = {
         //IE版本号获取
         IEVersion: function(){
             //取得浏览器的userAgent字符串
@@ -130,9 +130,87 @@ function jsFL() {
                      }
                  });
              }
-         }
+         },
+         // ajax异步传输
+        createXMLHTTPObject: function(){
+            var XMLHttpFactories = [// 兼容不同浏览器和版本的创建函数数组
+                function () {return new XMLHttpRequest()},
+                function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+                function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+                function () {return new ActiveXObject("Microsoft.XMLHTTP")},
+            ];
+            var xmlhttp = false;
+            for(var i = 0; i < XMLHttpFactories.length; i ++ ){
+                //尝试调用匿名函数，如果成功则返回XMLHttpRequest对象，否则继续调用下一个
+                try{
+                    xmlhttp = XMLHttpFactories[i]();
+                }catch (e){
+                    continue; // 如果发生异常，则继续下一个函数调用
+                }
+                break; // 如果成功，则中止循环
+            }
+            return xmlhttp;   // 返回对象实例
+        },
+
+        /*  将 get 跟post 封装到一起
+            参数1:url
+            参数2:数据
+            参数3:请求的方法
+            参数4:数据成功获取以后 调用的方法
+        */
+        ajaxTool: function(method,url,success,data) {
+            // 异步对象
+            var ajax = jsFL.createXMLHTTPObject();
+               // get 跟post  需要分别写不同的代码
+               if (method=='get') {
+                   // get请求
+                   if (data) {
+                       // 如果有值
+                       url+='?';
+                       url+=data;
+                   }else{
+
+                   }
+                   // 设置 方法 以及 url
+                   ajax.open(method,url);
+
+                   // send即可
+                   ajax.send();
+               }else{
+                   // post请求
+                   // post请求 url 是不需要改变
+                   ajax.open(method,url);
+
+                   // 需要设置请求报文
+                   ajax.setRequestHeader("Content-type","application/  x-www-form-urlencoded");
+                   // 判断data send发送数据
+                   if (data) {
+                       // 如果有值 从send发送
+                       ajax.send(data);
+                   }else{
+                       // 木有值 直接发送即可
+                       ajax.send();
+                   }
+               }
+
+            // 注册事件
+            ajax.onreadystatechange = function(){
+                // 在事件中 获取数据 并修改界面显示
+                if (ajax.readyState == 4 && ajax.status == 200) {
+                    // console.log(ajax.responseText);
+                    // 将 数据 让 外面可以使用
+                     //return ajax.responseText;
+                    // 当 onreadystatechange 调用时 说明 数据回来了
+                    // ajax.responseText;
+                    // 如果说 外面可以传入一个 function 作为参数 success
+                    success(ajax.responseText);
+                }
+            }
+
+        }
+
 
      };
-     return new jsFunctionLibrary();
+     return new JsFunctionLibrary();
 };
  var jsFL = $ = jsFL();
