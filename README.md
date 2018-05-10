@@ -11,7 +11,7 @@
 
 * ### getElementsByClassName() ：
   
-     由于IE9以下的版本不支持document.getElementsByClassName方法，为此将此方法进行了兼容性封装处理，调用时要以此构造函数名调用。例如：jsFL.getElementsByClassName('classname');。
+     由于IE9以下的版本不支持`document.getElementsByClassName`方法，为此将此方法进行了兼容性封装处理，调用时要以此构造函数名调用。例如：      `jsFL.getElementsByClassName('classname');`。
   
 * ### ajaxTool(method,url,success,data) ：
   
