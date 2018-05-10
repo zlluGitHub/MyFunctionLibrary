@@ -49,6 +49,7 @@
                   
                   
 ## 测试案例
+* [原生js实现购物车](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/shopping/shopping)<br />
 * [ajax异步传输获取方式](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/ajax)<br />
 * [左右焦点图轮播案例](https://github.com/zlluGitHub/StudyRecord/blob/master/demo.html)<br />
 * [Tab栏切换案例](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Tap-Control/tab1.js)<br />
