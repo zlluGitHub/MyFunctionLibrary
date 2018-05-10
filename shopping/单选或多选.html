@@ -22,46 +22,89 @@
         }
     </style>
     <script type="text/javascript">
-        window.onload = function () {
 
-            // 获取元素
-            var all = document.getElementById('all');
-            var list = document.getElementById('list');
-            var inputs = list.getElementsByTagName('input');
-            var total = document.getElementById('total');
+window.onload = function() {
+    var ul = document.getElementById('list');
+    var all = document.getElementById('all');
+    var total = document.getElementById('total');
+    var inputs = ul.getElementsByTagName('input');
+    var num = 0;
+    all.onclick = function() {
+        var i = 0;
+        num = 0;
+        if (!this.checked) {
+            while (i < inputs.length) {
+                inputs[i].checked = this.checked;
+                i++;
+            }
+            num = 0;
+            total.innerHTML = '已选：' + num + ' 项';
+        } else {
 
-            // 计算已选项的总数
-            function showToatal() {
-                var ret = 0, i = 0; len = inputs.length;
-                while(i < len){
-                    if (inputs[i].checked) {
-                        ret++;
-                    }
-                    i++;
-                }
-                total.innerHTML = '已选：' + ret + ' 项'
+            while (i < inputs.length) {
+                inputs[i].checked = this.checked;
+                i++;
+                num++;
             }
 
-            // 全选事件
-            all.onchange = function () {
-                var i = 0; len = inputs.length;
-                while(i < len){
-                    inputs[i].checked = all.checked;
-                    i++;
-                }
-                showToatal();
-            }
-
-            // 每个选项的事件
-            for (var i = 0, len = inputs.length; i < len; i++) {
-                inputs[i].onchange = function () {
-                    showToatal();
-                    if (!this.checked) {
-                        all.checked = false;
-                    }
-                };
-            }
+            total.innerHTML = '已选：' + num + ' 项';
         }
+    }
+
+    for (i = 0; i < inputs.length; i++) {
+        inputs[i].onchange = function() {
+            if (this.checked) {
+                num++;
+            } else {
+                num--;
+            }
+            total.innerHTML = '已选：' + num + ' 项';
+            all.checked = false;
+        }
+    }
+
+}
+/////////////////////////////第二种方法////////////////////
+        // window.onload = function () {
+
+        //     // 获取元素
+        //     var all = document.getElementById('all');
+        //     var list = document.getElementById('list');
+        //     var inputs = list.getElementsByTagName('input');
+        //     var total = document.getElementById('total');
+
+        //     // 计算已选项的总数
+        //     function showToatal() {
+        //         var ret = 0, i = 0; len = inputs.length;
+        //         while(i < len){
+        //             if (inputs[i].checked) {
+        //                 ret++;
+        //             }
+        //             i++;
+        //         }
+        //         total.innerHTML = '已选：' + ret + ' 项'
+        //     }
+
+        //     // 全选事件
+        //     all.onchange = function () {
+        //         var i = 0; len = inputs.length;
+        //         while(i < len){
+        //             inputs[i].checked = all.checked;
+        //             i++;
+        //         }
+        //         showToatal();
+        //     }
+
+        //     // 每个选项的事件
+        //     for (var i = 0, len = inputs.length; i < len; i++) {
+        //         inputs[i].onchange = function () {
+        //             showToatal();
+        //             if (!this.checked) {
+        //                 all.checked = false;
+        //             }
+        //         };
+        //     }
+        // }
     </script>
 </head>
 <body>

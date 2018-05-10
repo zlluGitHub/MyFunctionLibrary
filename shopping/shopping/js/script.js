@@ -14,7 +14,6 @@ window.onload = function () {
             return ret;
         }
     }
-
     var cartTable = document.getElementById('cartTable');
     var tr = cartTable.children[1].rows;
     var checkInputs = document.getElementsByClassName('check');
