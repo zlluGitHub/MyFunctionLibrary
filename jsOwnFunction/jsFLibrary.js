@@ -6,6 +6,19 @@ function jsFL() {
     };
     // 给原型提供方法
     JsFunctionLibrary.prototype = {
+        // 使操作对象显现
+        show: function(id) {
+            this.id(id).style.display = 'block';
+        },
+        // 使操作对象隐藏
+        hide: function(id) {
+            this.id(id).style.display = 'none';
+        },
+        //获取dom元素
+        id: function(id) {
+            return typeof id === "string" ? document.getElementById(id) : null;
+        },
+        //getElementsByClassName()兼容处理
         getElementsByClassName: function() {
             if (!document.getElementsByClassName) {
                 document.getElementsByClassName = function(cls) {
@@ -107,10 +120,7 @@ function jsFL() {
                 top: document.body.scrollTop
             };
         },
-        // 获取操作对象
-        id: function(id) {
-            return typeof id === "string" ? document.getElementById(id) : null;
-        },
+
         // 去掉首尾空白字符
         trim: function(str) {
             // null、undefined、NaN、0、false、''
@@ -234,6 +244,21 @@ function jsFL() {
 
 
     };
+
+    //创建静态方法
+    // 获取操作对象
+    // JsFunctionLibrary.id=function(id) {
+    //     return typeof id === "string" ? document.getElementById(id) : null;
+    // };
+    // // 使操作对象显现
+    // JsFunctionLibrary.show=function(){
+    //      this.style.display='block';
+    // };
+    // // 使操作对象隐藏
+    // JsFunctionLibrary.hide=function(){
+    //      this.style.display='none';
+    // }
+    //返回一个新的实例
     return new JsFunctionLibrary();
 };
 var jsFL = $ = jsFL();
