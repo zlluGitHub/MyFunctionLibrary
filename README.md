@@ -8,6 +8,13 @@
 * jsFL是一个相互间无依赖的,轻量级的JavaScript“类”库,可以用来替换存在兼容性问题的一些属性或方法的方式，支持所有浏览器。目前还在不断更新中... （ 特别说明：在调用时 `jsFL===jsFL()===$` 的。）
 
 ## 三、jsFL封装库定义和用法
+* ### show(id) ：
+  
+     可以通过传入目的对象的id，直接使用此方法使操作对象显现。
+
+* ### hide(id) ：
+  
+     可以通过传入目的对象的id，直接使用此方法使操作对象隐藏。
 
 * ### getElementsByClassName() ：
   
@@ -53,6 +60,7 @@
                   
                   
 ## 测试案例
+* [文件上传](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/Up-date-File)<br />
 * [原生js实现购物车](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/shopping/shopping)<br />
 * [ajax异步传输获取方式](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/ajax)<br />
 * [左右焦点图轮播案例](https://github.com/zlluGitHub/StudyRecord/blob/master/demo.html)<br />
