@@ -21,43 +21,41 @@ body{ margin:0; padding:0;}
 </div>
 <script type="text/javascript">
 
-// $.ready(function(){
-
-//     $.id("input").onclick=function(){
-
-//   $.show("pageCover");
-
+JsFL.ready(function(){
+    JsFL.id("input").onclick=function(){
+    JsFL.show("pageCover");
+  alert("message");
+}
+});
+// function Dialog(id){
+//     this.id=id;
+//     this.close_handler=null;
+//     var that=this;
+//     document.getElementById(id).children[0].onclick=function(){
+//         that.close();
+//         if(typeof that.close_handler=='function'){
+//             that.close_handler();
+//         }
+//     }
 // }
-// });
-function Dialog(id){
-    this.id=id;
-    this.close_handler=null;
-    var that=this;
-    document.getElementById(id).children[0].onclick=function(){
-        that.close();
-        if(typeof that.close_handler=='function'){
-            that.close_handler();
-        }
-    }
-}
-Dialog.prototype.show=function(){
-    var dlg=document.getElementById(this.id);
-    dlg.style.display='block';
-    dlg=null;
-}
-Dialog.prototype.close=function(){
-    var dlg=document.getElementById(this.id);
-    dlg.style.display='none';
-    dlg=null;
-}
-document.getElementById('input').onclick=function(){
-    document.getElementById('pageCover').style.display='block';
-    var dlg=new Dialog('dlgTest');
-    dlg.show();
-    dlg.close_handler=function(){
-        document.getElementById('pageCover').style.display='none';
-    }
-}
+// Dialog.prototype.show=function(){
+//     var dlg=document.getElementById(this.id);
+//     dlg.style.display='block';
+//     dlg=null;
+// }
+// Dialog.prototype.close=function(){
+//     var dlg=document.getElementById(this.id);
+//     dlg.style.display='none';
+//     dlg=null;
+// }
+// document.getElementById('input').onclick=function(){
+//     document.getElementById('pageCover').style.display='block';
+//     var dlg=new Dialog('dlgTest');
+//     dlg.show();
+//     dlg.close_handler=function(){
+//         document.getElementById('pageCover').style.display='none';
+//     }
+// }
 </script>
 </body>
 </html>

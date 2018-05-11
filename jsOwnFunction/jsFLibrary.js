@@ -1,11 +1,11 @@
-function jsFL() {
-    // 创建构造函数
+(function(w) {
+    // 创建工厂函数
     function JsFunctionLibrary() {
-        this.name = "JsFunctionLibrary";
-        this.explain = "";
+        return new JsFunctionLibrary.fn.init();
     };
     // 给原型提供方法
-    JsFunctionLibrary.prototype = {
+    JsFunctionLibrary.fn = JsFunctionLibrary.prototype = {
+        constrcutor: JsFunctionLibrary,
         // 使操作对象显现
         show: function(id) {
             this.id(id).style.display = 'block';
@@ -14,7 +14,6 @@ function jsFL() {
         hide: function(id) {
             this.id(id).style.display = 'none';
         },
-        //获取dom元素
         id: function(id) {
             return typeof id === "string" ? document.getElementById(id) : null;
         },
@@ -244,21 +243,14 @@ function jsFL() {
 
 
     };
+    // 构造函数
+    var init = JsFunctionLibrary.fn.init = function() {
+        this.name = "JsFunctionLibrary";
+    };
+    // 替换构造函数的原型为JsFunctionLibrary工厂的原型
+    init.prototype = JsFunctionLibrary.fn;
+    // 把工厂函数通过两个变量暴露出去
+    w.JsFL = w.$ = JsFunctionLibrary();
 
-    //创建静态方法
-    // 获取操作对象
-    // JsFunctionLibrary.id=function(id) {
-    //     return typeof id === "string" ? document.getElementById(id) : null;
-    // };
-    // // 使操作对象显现
-    // JsFunctionLibrary.show=function(){
-    //      this.style.display='block';
-    // };
-    // // 使操作对象隐藏
-    // JsFunctionLibrary.hide=function(){
-    //      this.style.display='none';
-    // }
-    //返回一个新的实例
-    return new JsFunctionLibrary();
-};
-var jsFL = $ = jsFL();
+}(window));
+
