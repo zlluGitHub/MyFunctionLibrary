@@ -6,6 +6,27 @@
     // 给原型提供方法
     JsFunctionLibrary.fn = JsFunctionLibrary.prototype = {
         constrcutor: JsFunctionLibrary,
+        InnerHTML: function(elm) {
+            var content = elm.innerHTML;
+            if (!document.all) return content;
+            var regOne = /(\s+\w+)\s*=\s*([^<>"\s]+)(?=[^<>]*\/>)/ig;
+            var regTwo = /"'([^'"]*)'"/ig;
+            content = content.replace(regOne, '$1="$2"').replace(regTwo, '\"$1\"');
+            var okText = content.replace(/<(\/?)(\w+)([^>]*)>/g, function(match, $1, $2, $3) {
+                if ($1) {
+                    return "</" + $2.toLowerCase() + ">";
+                };
+                return ("<" + $2.toLowerCase() + $3 + ">").replace(/=(("[^"]*?")|('[^']*?')|([\w\-\.]+))([\s>])/g, function(match2, $1, $2, $3, $4, $5, position, all) {
+                    if ($4) {
+                        return '="' + $4 + '"' + $5;
+                    };
+                    return match2;
+                });
+            });
+            return okText.replace(/<\/?([^>]+)>/g, function(lele) {
+                return lele;
+            });
+        },
         // 使操作对象显现
         show: function(id) {
             this.id(id).style.display = 'block';
@@ -196,34 +217,20 @@
             // get 跟post  需要分别写不同的代码
             if (method == 'get') {
                 // get请求
-                if (data) {
-                    // 如果有值
-                    url += '?';
-                    url += data;
-                } else {
-
-                }
+                url += '?';
+                url += data;
                 // 设置 方法 以及 url
                 ajax.open(method, url);
-
                 // send即可
                 ajax.send();
             } else {
-                // post请求
                 // post请求 url 是不需要改变
                 ajax.open(method, url);
-
                 // 需要设置请求报文
-                ajax.setRequestHeader("Content-type", "application/  x-www-form-urlencoded");
-                // 判断data send发送数据
-                if (data) {
-                    // 如果有值 从send发送
-                    ajax.send(data);
-                } else {
-                    // 木有值 直接发送即可
-                    ajax.send();
-                }
-            }
+                ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //  send发送数据
+                ajax.send(data);
+            };
 
             // 注册事件
             ajax.onreadystatechange = function() {
@@ -235,13 +242,11 @@
                     // 当 onreadystatechange 调用时 说明 数据回来了
                     // ajax.responseText;
                     // 如果说 外面可以传入一个 function 作为参数 success
-                    success(ajax.responseText);
+                    success(ajax);
                 }
             }
 
         }
-
-
     };
     // 构造函数
     var init = JsFunctionLibrary.fn.init = function() {
@@ -250,7 +255,6 @@
     // 替换构造函数的原型为JsFunctionLibrary工厂的原型
     init.prototype = JsFunctionLibrary.fn;
     // 把工厂函数通过两个变量暴露出去
-    w.JsFL = w.$ = JsFunctionLibrary();
+    w.jsFL = w.$ = JsFunctionLibrary();
 
-}(window));
-
+})(window);
