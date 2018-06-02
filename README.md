@@ -64,6 +64,7 @@
                   
                   
 ## 测试案例
+* [新增鼠标拖拽效果](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/MouseDrag/mouseDrag)
 * [文件上传](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/Up-date-File)<br />
 * [原生js实现购物车](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/shopping/shopping)<br />
 * [ajax异步传输获取方式](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/ajax)<br />
