@@ -4,7 +4,12 @@
 <title></title>
 <style type="text/css" >
 body{ margin:0; padding:0;}
-.dialog { width: 300px; height: 200px; position:fixed; left:50%;top:50%; margin-top:-100px; margin-left:-150px; z-index: 30;box-shadow: 2px 2px 4px #ccc; background-color: #f1f1f1; border: solid 1px #aaa; border-radius: 4px; overflow: hidden; display: none; }
+.qwe{
+    background-color: #f1f1f1;
+    width:120px;
+    height:120px;
+}
+.dialog { width: 300px; height: 200px; position:fixed; left:50%;top:50%; margin-top:-100px; margin-left:-150px; z-index: 30;box-shadow: 2px 2px 4px #ccc; background-color: #f1f1f1; border: solid 1px #aaa; border-radius: 4px; overflow: hidden; /* display: none; */ }
 .dialog .title { font-size: 16px; font-weight: bold; color: #fff; padding: 6px; background-color: #404040; }
 .dialog .close { width: 20px; height: 20px; margin: 3px; float: right; cursor: pointer; color: #fff; }
 .pageCover { width: 100%; height: 100%; position: absolute; z-index: 10; background-color: #666; opacity: 0.5; display: none; }
@@ -17,15 +22,23 @@ body{ margin:0; padding:0;}
 <input id="input" type="button" value="打开对话框" "/>
 <div id="dlgTest" class="dialog"><span class="close">&times;</span>
     <div class="title">对话框标题栏</div>
-    <div class="content">对话框内容框</div>
+    <div class="qwe" id="content">对话框内容框</div>
 </div>
 <script type="text/javascript">
 
-JsFL.ready(function(){
-    JsFL.id("input").onclick=function(){
-    JsFL.show("pageCover");
-  alert("message");
-}
+$.ready(function(){
+    $.addEvent($.id("input"),"click",function(){
+        var a = $.class("dialog")[0];
+        console.log(a);
+        var panduan = $.id("dlgTest").style.display;
+        if(panduan == 'block'){
+            $.hide('dlgTest');
+        }else{
+            $.show('dlgTest');
+        }
+        console.log($.hasClass('title'));
+
+    });
 });
 // function Dialog(id){
 //     this.id=id;

@@ -6,6 +6,41 @@
     // 给原型提供方法
     JsFunctionLibrary.fn = JsFunctionLibrary.prototype = {
         constrcutor: JsFunctionLibrary,
+        // 判断元素中是否含有指定的class
+            hasClass: function( className ) {
+                /*
+                * 实现思路：
+                * 1、遍历所有的元素
+                * 2、依次获取每一个元素的className，为了方便判断，首尾加空格
+                * 3、利用处理过的className字符串的indexOf方法判断有没有指定的className(这个className首尾也加空格)
+                * 4、如果有一个元素的判断结果不为-1，就返回true
+                * 5、否则返回false。
+                * */
+                var ele = this.class(className);
+                for( var i = 0, len = ele.length; i < len; i++ ) {
+                    // 只要有一个元素存在指定的className，那么就可以true了
+                    if ( (' ' + ele[ i ].className + ' ').indexOf(' ' + className + ' ') > -1 ) {
+                        return true;
+                    };
+                };
+                // 所有的元素都没有，那么返回false
+                return false;
+            },
+        class: function(className) {
+            var aResult = [];
+            var aEle = document.getElementsByTagName('*');
+            for (var i = 0; i < aEle.length; i++) {
+                /*将每个className拆分*/
+                var arr = aEle[i].className.split(/\s+/);
+                for (var j = 0; j < arr.length; j++) {
+                    /*判断拆分后的数组中有没有满足的class*/
+                    if (arr[j] == className) {
+                      aResult.push(aEle[i]);
+                   };
+                };
+            };
+            return aResult;
+        },
         InnerHTML: function(elm) {
             var content = elm.innerHTML;
             if (!document.all) return content;
@@ -30,10 +65,12 @@
         // 使操作对象显现
         show: function(id) {
             this.id(id).style.display = 'block';
+            return this;
         },
         // 使操作对象隐藏
         hide: function(id) {
             this.id(id).style.display = 'none';
+            return this;
         },
         id: function(id) {
             return typeof id === "string" ? document.getElementById(id) : null;
@@ -47,11 +84,11 @@
                     for (var i = 0, len = els.length; i < len; i++) {
                         if (els[i].className === cls || els[i].className.indexOf(cls + ' ') >= 0 || els[i].className.indexOf(' ' + cls + ' ') >= 0 || els[i].className.indexOf(' ' + cls) >= 0) {
                             ret.push(els[i]);
-                        }
-                    }
+                        };
+                    };
                     return ret;
-                }
-            }
+                };
+            };
         },
 
         //IE版本号获取
@@ -84,7 +121,7 @@
                 return 11; //IE11
             } else {
                 return -1; //不是ie浏览器
-            }
+            };
         },
         //动画函数封装
         animate: function(ele, target, time, speed) {
@@ -107,7 +144,7 @@
                 ele.addEventListener(type, fn);
             } else {
                 ele.attachEvent('on' + type, fn);
-            }
+            };
         },
         // 兼容绑定事件移除
         removeEvent: function(ele, type, fn) {
@@ -115,7 +152,7 @@
                 ele.removeEventListener(type, fn);
             } else {
                 ele.detachEvent('on' + type, fn);
-            }
+            };
         },
         //scrollTop和scrollLeft兼容封装
         scroll: function() {
