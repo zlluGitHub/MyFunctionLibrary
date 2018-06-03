@@ -8,6 +8,23 @@
 * jsFL是一个相互间无依赖的,轻量级的JavaScript“类”库,可以用来替换存在兼容性问题的一些属性或方法的方式，支持所有浏览器。目前还在不断更新中... （ 特别说明：在调用时 `jsFL===jsFL()===$` 的。）
 
 ## 三、jsFL封装库定义和用法
+* ### removeClass(idOrclass, className) ：
+  
+     参数说明：`idOrclass`可以是`id`值也可以是`class类名`、`className`为需要移除的类名。
+     
+     若`idOrclass`可以为`id`值时只为此对象元素移除类名，若`idOrclass`为`class类名`如果有多个相同类名对象时，这些对象的类名均会被移除要移除的类名。
+
+
+* ### addClass(idOrclass, className) ：
+  
+     参数说明：`idOrclass`可以是`id`值也可以是`class类名`、`className`为需要添加的类名。
+     
+     若`idOrclass`可以为`id`值时只为此对象元素添加类名，若`idOrclass`为`class类名`如果有多个相同类名对象时，这些对象的类名均会被添加要添加的类名。
+
+* ### val(idOrclass, val) ：
+  
+     参数说明：`idOrclass`可以是`id`值也可以是`class类名`、`val`为需要设置的`value`值，若为空则返回的是此`value的初始值`。
+
 * ### hasClass(className) ：
   
      这种方法通过传入目的对象的类名，判断该对象是否含有该类，若有则返回`true` 否则返回`false`。
