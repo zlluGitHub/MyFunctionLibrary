@@ -20,26 +20,14 @@ body{ margin:0; padding:0;}
 <body>
 <div id="pageCover" class="pageCover"></div>
 <input id="input" type="button" value="打开对话框" "/>
+<input id="zxc" class="qw cls_name" type="text" name="" value="dsf" placeholder="">
 <div id="dlgTest" class="dialog"><span class="close">&times;</span>
     <div class="title">对话框标题栏</div>
     <div class="qwe" id="content">对话框内容框</div>
 </div>
 <script type="text/javascript">
-
-$.ready(function(){
-    $.addEvent($.id("input"),"click",function(){
-        var a = $.class("dialog")[0];
-        console.log(a);
-        var panduan = $.id("dlgTest").style.display;
-        if(panduan == 'block'){
-            $.hide('dlgTest');
-        }else{
-            $.show('dlgTest');
-        }
-        console.log($.hasClass('title'));
-
-    });
-});
+console.log($.addClass('.qw', 'cls_name'));
+//console.log($.val(".qw"));
 // function Dialog(id){
 //     this.id=id;
 //     this.close_handler=null;

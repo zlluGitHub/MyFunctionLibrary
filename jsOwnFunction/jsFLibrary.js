@@ -6,26 +6,68 @@
     // 给原型提供方法
     JsFunctionLibrary.fn = JsFunctionLibrary.prototype = {
         constrcutor: JsFunctionLibrary,
-        // 判断元素中是否含有指定的class
-            hasClass: function( className ) {
-                /*
-                * 实现思路：
-                * 1、遍历所有的元素
-                * 2、依次获取每一个元素的className，为了方便判断，首尾加空格
-                * 3、利用处理过的className字符串的indexOf方法判断有没有指定的className(这个className首尾也加空格)
-                * 4、如果有一个元素的判断结果不为-1，就返回true
-                * 5、否则返回false。
-                * */
-                var ele = this.class(className);
-                for( var i = 0, len = ele.length; i < len; i++ ) {
-                    // 只要有一个元素存在指定的className，那么就可以true了
-                    if ( (' ' + ele[ i ].className + ' ').indexOf(' ' + className + ' ') > -1 ) {
-                        return true;
+        //给所有的元素移除指定的class
+        removeClass: function(idOrclass, className) {
+            if (idOrclass.indexOf('#') > -1) {
+                var idOrclass = idOrclass.replace(/#/g, "");
+                idOrclass = this.id(idOrclass);
+                idOrclass.classList.remove(className);
+            } else {
+                var idOrclass = idOrclass.replace(/\./g, "");
+                var arrayClassname = this.class(idOrclass);
+                for (var i = 0; i < arrayClassname.length; i++) {
+                    arrayClassname[i].classList.remove(className);
+                };
+            };
+        },
+        // 给所有的元素添加指定的class
+        addClass: function(idOrclass, className) {
+            if (idOrclass.indexOf('#') > -1) {
+                var idOrclass = idOrclass.replace(/#/g, "");
+                idOrclass = this.id(idOrclass);
+                if (!this.hasClass(className)) {
+                    idOrclass.className += ' ' + className;
+                };
+            } else {
+                var idOrclass = idOrclass.replace(/\./g, "");
+                var arrayClassname = this.class(idOrclass);
+                if (!this.hasClass(className)) {
+                    for (var i = 0; i < arrayClassname.length; i++) {
+                        arrayClassname[i].className += ' ' + className;
                     };
                 };
-                // 所有的元素都没有，那么返回false
-                return false;
-            },
+            };
+        },
+        // 设置或者获取元素的value属性值
+        val: function(idOrclass, val) {
+            if (idOrclass.indexOf('#') > -1) {
+                var idOrclass = idOrclass.replace(/#/g, "");
+                idOrclass = this.id(idOrclass);
+                if (val != undefined) {
+                    return idOrclass.value = val;
+                };
+                return idOrclass.value;
+            } else {
+                var idOrclass = idOrclass.replace(/\./g, "");
+                idOrclass = this.class(idOrclass)[0];
+                if (val != undefined) {
+                    return idOrclass.value = val;
+                };
+                return idOrclass.value;
+            };
+        },
+        // 判断元素中是否含有指定的class
+        hasClass: function(className) {
+            var ele = this.class(className);
+            for (var i = 0, len = ele.length; i < len; i++) {
+                // 只要有一个元素存在指定的className，那么就可以true了
+                if ((' ' + ele[i].className + ' ').indexOf(' ' + className + ' ') > -1) {
+                    return true;
+                };
+            };
+            // 所有的元素都没有，那么返回false
+            return false;
+        },
         class: function(className) {
             var aResult = [];
             var aEle = document.getElementsByTagName('*');
@@ -35,8 +77,8 @@
                 for (var j = 0; j < arr.length; j++) {
                     /*判断拆分后的数组中有没有满足的class*/
                     if (arr[j] == className) {
-                      aResult.push(aEle[i]);
-                   };
+                        aResult.push(aEle[i]);
+                    };
                 };
             };
             return aResult;
@@ -62,6 +104,10 @@
                 return lele;
             });
         },
+        //通过id获取元素对象
+        id: function(id) {
+            return typeof id === 'string' ? document.getElementById(id) : null;
+        },
         // 使操作对象显现
         show: function(id) {
             this.id(id).style.display = 'block';
@@ -71,9 +117,6 @@
         hide: function(id) {
             this.id(id).style.display = 'none';
             return this;
-        },
-        id: function(id) {
-            return typeof id === "string" ? document.getElementById(id) : null;
         },
         //getElementsByClassName()兼容处理
         getElementsByClassName: function() {
@@ -137,7 +180,6 @@
                 };
             }, time);
         },
-
         // 兼容绑定事件
         addEvent: function(ele, type, fn) {
             if (ele.addEventListener) {
