@@ -6,6 +6,8 @@
     // 给原型提供方法
     JsFunctionLibrary.fn = JsFunctionLibrary.prototype = {
         constrcutor: JsFunctionLibrary,
+        //鼠标拖动
+
         //给所有的元素移除指定的class
         removeClass: function(idOrclass, className) {
             if (idOrclass.indexOf('#') > -1) {
