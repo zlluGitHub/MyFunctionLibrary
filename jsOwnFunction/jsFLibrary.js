@@ -7,7 +7,33 @@
     JsFunctionLibrary.fn = JsFunctionLibrary.prototype = {
         constrcutor: JsFunctionLibrary,
         //鼠标拖动
+        // 判断是不是对象
+        isObject: function( obj ) {
 
+            // 防止typeof对null的误判
+            if ( obj === null ) {
+                return false;
+            }
+            // 如果是object或function，那就是对象
+            if ( typeof obj === 'object' || typeof obj === 'function' ) {
+                return true;
+            }
+            return false;
+        },
+        // 判断是不是字符串
+        isString: function( str ) {
+            if ( typeof str === 'string' ) {
+                return true;
+            }
+            return false;
+        },
+        // 判断是不是函数
+        isFunction: function( fn ) {
+            if ( typeof fn === 'function' ) {
+                return true;
+            }
+            return false;
+        },
         //给所有的元素移除指定的class
         removeClass: function(idOrclass, className) {
             if (idOrclass.indexOf('#') > -1) {
