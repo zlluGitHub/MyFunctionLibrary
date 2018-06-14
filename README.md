@@ -8,6 +8,18 @@
 * jsFL是一个相互间无依赖的,轻量级的JavaScript“类”库,可以用来替换存在兼容性问题的一些属性或方法的方式，支持所有浏览器。目前还在不断更新中... （ 特别说明：在调用时 `jsFL===jsFL()===$` 的。）
 
 ## 三、jsFL封装库定义和用法
+* ### isObject: function( obj ) ：
+  
+     参数说明：判断操作内容是否为对象，若是对象，则返回`true`否则返回`false`。
+  
+* ### isString: function( str ) ：
+  
+     参数说明：判断操作对象是否为字符串，若是字符串，则返回`true`否则返回`false`。
+  
+* ### isFunction: function( fn ) ：
+  
+     参数说明：判断操作对象是否为函数，若是函数，则返回`true`否则返回`false`，其中`fn`为函数名。
+  
 * ### removeClass(idOrclass, className) ：
   
      参数说明：`idOrclass`可以是`id`值也可以是`class类名`、`className`为需要移除的类名。
