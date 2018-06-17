@@ -6,30 +6,45 @@
     // 给原型提供方法
     JsFunctionLibrary.fn = JsFunctionLibrary.prototype = {
         constrcutor: JsFunctionLibrary,
-        //鼠标拖动
+        //判断是否在移动端打开，若在pc端打开则返回true
+        isPC:function() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"
+            ];
+            var flag = true;
+            for (var i = 0; i < Agents.length; i++) {
+                if (userAgentInfo.indexOf(Agents[i]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        },
         // 判断是不是对象
-        isObject: function( obj ) {
+        isObject: function(obj) {
 
             // 防止typeof对null的误判
-            if ( obj === null ) {
+            if (obj === null) {
                 return false;
             }
             // 如果是object或function，那就是对象
-            if ( typeof obj === 'object' || typeof obj === 'function' ) {
+            if (typeof obj === 'object' || typeof obj === 'function') {
                 return true;
             }
             return false;
         },
         // 判断是不是字符串
-        isString: function( str ) {
-            if ( typeof str === 'string' ) {
+        isString: function(str) {
+            if (typeof str === 'string') {
                 return true;
             }
             return false;
         },
         // 判断是不是函数
-        isFunction: function( fn ) {
-            if ( typeof fn === 'function' ) {
+        isFunction: function(fn) {
+            if (typeof fn === 'function') {
                 return true;
             }
             return false;
