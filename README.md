@@ -1,5 +1,5 @@
 ## 一、 前言
-* 我们在开发的过程中，常常会用到很多类似的属性或方法，而且有些属性或方法在不同的浏览器上存在兼容性问题，于是我就把这些小功能用了一个小的闭包结合构造函数封装了一下，做了一个小的js封装库，其中封装内容基本都是一些经过兼容我们常用的浏览器的方法，以便在开发过程中可以直接使用这些属性或方法。（文档中的内容分为两大部分，一部分是分装好的js库函数，在【[jsOwnFunction](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/jsOwnFunction)】文件夹下，剩下的部分则是一些测试案例）
+* 我们在开发的过程中，常常会用到很多类似的属性或方法，而且有些属性或方法在不同的浏览器上存在兼容性问题，于是我就把这些小功能用了一个小的闭包结合构造函数封装了一下，做了一个小的js封装库，其中封装内容基本都是一些经过兼容我们常用的浏览器的方法，以便在开发过程中可以直接使用这些属性或方法。分装好的js库函数，在【[jsOwnFunction](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/jsOwnFunction)】文件夹下，剩下的部分则是一些测试案例）
 
 * 此文档一直在不断更新中，如不足之处或有更好的建议欢迎 fork 之后提交 pr。
 
@@ -96,33 +96,3 @@
 * ### ready(fn) ：
   
      当 DOM（文档对象模型）已经加载，并且页面（包括图像）已经完全呈现时，会发生 ready 事件。由于该事件在文档就绪后发生，类似于jQuery中的ready()方法。使用方法: `jsFL.ready(function(){...})` 或 `$.ready(function(){...})` 或 `jsFL().ready(function(){...})`。
-
-                  
-                  
-                  
-## 测试案例
-* [新增鼠标拖拽效果](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/MouseDrag/mouseDrag)
-* [文件上传](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/Up-date-File)<br />
-* [原生js实现购物车](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/shopping/shopping)<br />
-* [ajax异步传输获取方式](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/ajax)<br />
-* [左右焦点图轮播案例](https://github.com/zlluGitHub/StudyRecord/blob/master/demo.html)<br />
-* [Tab栏切换案例](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Tap-Control/tab1.js)<br />
-* [楼层跳跃案例代码](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/function/floor-leap.html)<br />
-* [注册事件的兼容性函数封装处理](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/event-handling.html)<br />
-* [移动端页面适配代码](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Mobile-code/Mobile.js)<br />
-* [jQuery滑块动画菜单](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/jQuery-SlideNav/js/lavalamp.js)<br />
-* [手风琴效果图](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Accordion-effect/demo.html)<br />
-* [放大镜效果小案例](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/magnifying-glass)<br />
-* [两侧跟随的广告](https://github.com/zlluGitHub/MyFunctionLibrary/tree/master/Following%20ads)<br />
-* [Ajax异步数据传输](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/ajax%20POST/test1.html)<br />
-* [鼠标拖拽效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/MouseDrag/MouseDrag.js)<br />
-* [随机抽奖效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Random-draw/%E9%9A%8F%E6%9C%BA%E6%8A%BD%E5%A5%96.html)<br />
-* [ js实现简单日历效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/calendar/%E6%97%A5%E5%8E%86.html)<br />
-* [实现圆形表盘时钟效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/clock/%E6%97%B6%E9%92%9F%E7%89%B9%E6%95%88.html)<br />
-* [倒计时效果](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/count-down/%E5%80%92%E8%AE%A1%E6%97%B6.html)<br />
-* [json封装scroll方法](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/json-scroll/json-scroll.html)<br />
-* [缓冲运动函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/Buffer-movement/Buffer-movement.js)<br />
-* [myReady函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/myReady/myReady.js)<br />
-* [js实现透明度变化](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/opacity-chang/opacity-chang.js)<br />
-* [匀速运动函数](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/uniform-motion/uniform-motion.js)<br />
-* [返回节点名称或属性值](https://github.com/zlluGitHub/MyFunctionLibrary/blob/master/nodeName/nodeName.html)<br />
